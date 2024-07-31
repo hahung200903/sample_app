@@ -8,5 +8,9 @@ require "rails/test_help"
   parallelize(workers: :number_of_processors)
   # Set up all fixtures in test/fixtures/*.yml.
   fixtures :all
-  include ApplicationHelper
+  
+  # Returns true if a test user is logged in.
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end
